@@ -1,51 +1,36 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 
-const appsPromise = fetch('/apps.json').then(res => res.json());
 
-const Apps = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+const TrendingApps = ({appsPromise}) => {
+  // Limit to 8 for the "Trending" section
 
   const apps = use(appsPromise);
+  console.log(apps)
+  const displayApps = apps.slice(0, 8);
 
   return (
-    <section className="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#fcfcfd] py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
-            Our All Applications
-          </h2>
-          <p className="text-slate-500 text-sm md:text-lg max-w-2xl mx-auto">
-            Explore All Apps on the Market developed by us. We code for Millions.
-          </p>
-        </div>
-
-        {/* Filter & Search Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-          <h3 className="text-xl font-bold text-slate-800">
-            ({apps.length}) Apps Found
-          </h3>
-          
-          <div className="relative w-full md:w-80">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg className="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <input
-              type="text"
-              className="block w-full pl-10 pr-3 py-2 border border-slate-200 rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 sm:text-sm transition-all"
-              placeholder="search Apps"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="text-left">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+              Trending Apps
+            </h2>
+            <p className="text-slate-500 mt-2 text-sm md:text-base">
+              The most downloaded and highly-rated tools in our ecosystem.
+            </p>
           </div>
+          <button className="text-violet-600 font-bold text-sm hover:underline flex items-center gap-1">
+            View All Apps 
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
 
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {apps.map((app) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {displayApps.map((app) => (
             <div 
               key={app.id} 
               className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
@@ -95,9 +80,16 @@ const Apps = () => {
             </div>
           ))}
         </div>
+
+        {/* Center CTA */}
+        <div className="mt-16 text-center">
+          <button className="bg-violet-600 cursor-pointer hover:bg-violet-700 text-white px-12 py-4 rounded-xl font-black shadow-[0_10px_20px_-5px_rgba(124,58,237,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(124,58,237,0.4)] transition-all active:scale-95">
+            SHOW ALL
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Apps;
+export default TrendingApps;

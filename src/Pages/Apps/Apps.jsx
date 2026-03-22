@@ -5,8 +5,12 @@ const appsPromise = fetch('/apps.json').then(res => res.json());
 
 const Apps = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
   const apps = use(appsPromise);
+
+  const filteredApps = apps.filter((app) =>
+    app.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
   return (
     <section className="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
@@ -46,7 +50,7 @@ const Apps = () => {
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {apps.map((app) => (
+          {filteredApps.map((app) => (
             <Link key={app.id} to={`/apps/${app.id}`}>
               <div 
               key={app.id} 
@@ -97,7 +101,15 @@ const Apps = () => {
             </div>
             </Link>
           ))}
+
+          
         </div>
+        {/* Empty State */}
+        {filteredApps.length === 0 && (
+          <div className="text-center py-20 mx-auto">
+            <p className="text-slate-400 text-lg mx-auto">No apps found matching "{searchTerm}"</p>
+          </div>
+        )}
       </div>
     </section>
   );

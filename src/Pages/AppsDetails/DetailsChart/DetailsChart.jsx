@@ -12,7 +12,7 @@ const DetailsChart = ({ app }) => {
     <div className="w-full max-w-6xl mx-auto bg-white p-4 md:py-6 rounded-2xl shadow-sm">
       {/* Chart Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-black text-black mb-8">Ratings</h2>
+        <h2 className="text-2xl font-semibold text-black mb-8">Ratings</h2>
         
         {/* Adjusted height for responsiveness */}
         <div className="w-full h-64 md:h-100">
@@ -60,8 +60,8 @@ const DetailsChart = ({ app }) => {
 
       {/* Description Section */}
       <section className="border-t border-slate-100 pt-5">
-        <h3 className="text-2xl font-black text-[#0f172a] mb-6">Description</h3>
-        <div className="space-y-6 text-[#64748b] leading-relaxed text-base md:text-lg">
+        <h3 className="text-2xl font-semibold text-[#0f172a] mb-6">Description</h3>
+        <div className="space-y-6 text-[#64748b] leading-relaxed text-base ">
           <p>
             {app?.description?.split(' ').slice(0, 250).join(' ')}
           </p>

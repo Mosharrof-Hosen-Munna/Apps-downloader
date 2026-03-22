@@ -17,9 +17,9 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="bg-white border-b border-gray-100 font-sans sticky top-0 z-50">
+    <nav className="bg-white shadow-sm border-b border-gray-100 font-sans sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center py-3">
           
           {/* Logo Section */}
           <NavLink to="/" className="shrink-0 flex items-center gap-3">

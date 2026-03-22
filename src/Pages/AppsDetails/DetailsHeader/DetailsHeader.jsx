@@ -24,11 +24,11 @@ const DetailsHeader = ({app}) => {
         <div className="grow w-full text-center md:text-left">
           {/* Title and Dev */}
           <div className="mb-4">
-            <h1 className="text-2xl md:text-[32px] font-black text-[#0f172a] leading-tight">
+            <h1 className="text-2xl md:text-[32px] font-bold text-[#0f172a] leading-tight">
               {app.title}
             </h1>
             <p className="text-[#64748b] text-base mt-1">
-              Developed by <span className="text-violet-600 font-medium hover:underline cursor-pointer">productive.io</span>
+              Developed by <span className="text-violet-600 font-medium hover:underline cursor-pointer">AppStack.io</span>
             </p>
           </div>
 

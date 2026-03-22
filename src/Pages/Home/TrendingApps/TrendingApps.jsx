@@ -16,7 +16,7 @@ const TrendingApps = ({appsPromise}) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div className="text-left">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
               Trending Apps
             </h2>
             <p className="text-slate-500 mt-2 text-sm md:text-base">
@@ -86,7 +86,7 @@ const TrendingApps = ({appsPromise}) => {
 
         {/* Center CTA */}
         <Link to="/apps"><div className="mt-16 text-center">
-          <button className="bg-violet-600 cursor-pointer hover:bg-violet-700 text-white px-12 py-4 rounded-xl font-black shadow-[0_10px_20px_-5px_rgba(124,58,237,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(124,58,237,0.4)] transition-all active:scale-95">
+          <button className="bg-violet-600 cursor-pointer hover:bg-violet-700 text-white px-12 py-4 rounded-xl font-bold shadow-[0_10px_20px_-5px_rgba(124,58,237,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(124,58,237,0.4)] transition-all active:scale-95">
             SHOW ALL
           </button>
         </div></Link>

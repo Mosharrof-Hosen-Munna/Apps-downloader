@@ -26,6 +26,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "installation",
+                loader: () => fetch('/apps.json').then(res => res.json()),
                 Component: Installation
             },
             {

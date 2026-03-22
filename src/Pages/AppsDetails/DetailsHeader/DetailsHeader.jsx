@@ -1,6 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const DetailsHeader = ({app}) => {
+
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    const installedApps = JSON.parse(localStorage.getItem('installedApps') || '{}');
+    if (installedApps[app.id]) {
+      setIsInstalled(true);
+    }
+  }, [app.id]);
+
+  const handleInstall = () => {
+    const installedApps = JSON.parse(localStorage.getItem('installedApps') || '{}');
+    
+    installedApps[app.id] = true;
+    
+    localStorage.setItem('installedApps', JSON.stringify(installedApps));
+    setIsInstalled(true);
+  };
+
   const formatStat = (num) => {
     if (num >= 1000000) return (num / 1000000).toFixed(0) + 'M';
     if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
@@ -44,7 +63,7 @@ const DetailsHeader = ({app}) => {
                 </svg>
               </div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase">Downloads</p>
-              <p className="text-2xl md:text-[32px] font-black text-[#0f172a]">{formatStat(app.downloads)}</p>
+              <p className="text-2xl md:text-[32px] font-bold text-[#0f172a]">{formatStat(app.downloads)}</p>
             </div>
 
             {/* Average Ratings */}
@@ -55,7 +74,7 @@ const DetailsHeader = ({app}) => {
                 </svg>
               </div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase">Average Ratings</p>
-              <p className="text-2xl md:text-[32px] font-black text-[#0f172a]">{app.ratingAvg}</p>
+              <p className="text-2xl md:text-[32px] font-bold text-[#0f172a]">{app.ratingAvg}</p>
             </div>
 
             {/* Total Reviews */}
@@ -66,15 +85,26 @@ const DetailsHeader = ({app}) => {
                 </svg>
               </div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase">Total Reviews</p>
-              <p className="text-2xl md:text-[32px] font-black text-[#0f172a]">{formatStat(app.reviews)}</p>
+              <p className="text-2xl md:text-[32px] font-bold text-[#0f172a]">{formatStat(app.reviews)}</p>
             </div>
           </div>
 
           {/* Action Button */}
           <div className="flex justify-center md:justify-start">
-            <button className="w-full md:w-auto bg-[#00d084] hover:bg-[#00ba76] text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors">
-              Install Now ({app.size} MB)
-            </button>
+            {/* 3. Conditional Button Rendering */}
+        <div className="mt-8">
+          <button
+            onClick={handleInstall}
+            disabled={isInstalled}
+            className={`w-full md:w-auto px-12 py-4 rounded-xl font-black text-lg transition-all 
+              ${isInstalled 
+                ? 'bg-slate-200 text-slate-500 cursor-not-allowed' 
+                : 'bg-[#00d084] text-white hover:bg-[#00ba76] shadow-lg shadow-emerald-100 active:scale-95'
+              }`}
+          >
+            {isInstalled ? 'Installed' : `Install Now (${app.size} MB)`}
+          </button>
+        </div>
           </div>
         </div>
       </div>

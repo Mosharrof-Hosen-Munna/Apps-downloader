@@ -1,4 +1,5 @@
 import React, { use, useState } from 'react';
+import { Link } from 'react-router';
 
 const appsPromise = fetch('/apps.json').then(res => res.json());
 
@@ -46,7 +47,8 @@ const Apps = () => {
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {apps.map((app) => (
-            <div 
+            <Link key={app.id} to={`/apps/${app.id}`}>
+              <div 
               key={app.id} 
               className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
             >
@@ -93,6 +95,7 @@ const Apps = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

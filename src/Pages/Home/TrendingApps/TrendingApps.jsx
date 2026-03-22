@@ -1,4 +1,5 @@
 import React, { use } from 'react';
+import { Link } from 'react-router';
 
 
 const TrendingApps = ({appsPromise}) => {
@@ -22,16 +23,17 @@ const TrendingApps = ({appsPromise}) => {
               The most downloaded and highly-rated tools in our ecosystem.
             </p>
           </div>
-          <button className="text-violet-600 font-bold text-sm hover:underline flex items-center gap-1">
+          <Link to="/apps"><button className="text-violet-600 cursor-pointer font-bold text-sm hover:underline flex items-center gap-1">
             View All Apps 
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
+          </button></Link>
         </div>
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {displayApps.map((app) => (
-            <div 
+            <Link key={app.id} to={`/apps/${app.id}`}>
+              <div 
               key={app.id} 
               className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
             >
@@ -78,15 +80,16 @@ const TrendingApps = ({appsPromise}) => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
 
         {/* Center CTA */}
-        <div className="mt-16 text-center">
+        <Link to="/apps"><div className="mt-16 text-center">
           <button className="bg-violet-600 cursor-pointer hover:bg-violet-700 text-white px-12 py-4 rounded-xl font-black shadow-[0_10px_20px_-5px_rgba(124,58,237,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(124,58,237,0.4)] transition-all active:scale-95">
             SHOW ALL
           </button>
-        </div>
+        </div></Link>
       </div>
     </section>
   );

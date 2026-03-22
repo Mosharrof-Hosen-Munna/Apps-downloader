@@ -57,7 +57,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">About Information</h4>
             <div className="text-white text-sm space-y-3">
-              <p>PharmaCare </p>
+              <p>AppStack </p>
               <p>Kishoreganj, Dhaka, Bangladesh</p>
               <p>Beside the River side.</p>
               <p className="pt-2">Call us: <span className="text-white font-semibold">+8801XXXXXXXX</span></p>

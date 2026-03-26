@@ -9,7 +9,6 @@ const NotFound = () => {
     <div className="grow flex flex-col items-center justify-center px-4 py-16 md:py-24 bg-[#fcfcfd]">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
-        {/* Illustration Container */}
         <div className="w-full max-w-60 md:max-w-90 mb-8 md:mb-12">
           <img 
             src={errorImage} 
@@ -18,7 +17,7 @@ const NotFound = () => {
           />
         </div>
 
-        {/* Text Content */}
+        
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-semibold text-[#0f172a] mb-4 tracking-tight">
             Oops, page not found!

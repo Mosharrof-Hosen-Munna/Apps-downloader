@@ -78,10 +78,10 @@ const InstallationContent = () => {
             installedApps.map((app) => (
               <div 
                 key={app.id} 
-                className="bg-white border border-slate-100 rounded-2xl p-4 md:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm hover:shadow-md transition-all group"
+                className="bg-white border border-slate-100 rounded-2xl p-2 md:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm hover:shadow-md transition-all group"
               >
                 <div className="flex items-center w-full sm:w-auto gap-4 md:gap-6">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-slate-50 rounded-2xl shrink-0 flex items-center justify-center p-4 border border-slate-50 group-hover:bg-white transition-colors">
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-slate-50 rounded-2xl shrink-0 flex items-center justify-center  border border-slate-50 group-hover:bg-white transition-colors">
                     <img src={app.image} alt="" className="w-full h-full object-contain" />
                   </div>
                   
@@ -103,7 +103,6 @@ const InstallationContent = () => {
                   </div>
                 </div>
 
-                {/* Right Side: Button */}
                 <button 
                   onClick={() => handleUninstall(app.id)}
                   className="w-full sm:w-auto bg-[#00d084] hover:bg-red-500 text-white px-8 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-lg shadow-emerald-50 hover:shadow-red-50"

@@ -14,7 +14,6 @@ const DetailsChart = ({ app }) => {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold text-black mb-8">Ratings</h2>
         
-        {/* Adjusted height for responsiveness */}
         <div className="w-full h-64 md:h-100">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -27,7 +26,7 @@ const DetailsChart = ({ app }) => {
               
               <XAxis 
                 type="number" 
-                domain={[0, 'dataMax + 1000']} // Dynamic domain based on your data
+                domain={[0, 'dataMax + 1000']} 
                 axisLine={false} 
                 tickLine={false}
                 tick={{ fill: '#94a3b8', fontSize: 12 }}
@@ -47,7 +46,6 @@ const DetailsChart = ({ app }) => {
                 contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }}
               />
               
-              {/* Fix: Set the fill color directly on the Bar component */}
               <Bar 
                 dataKey="count" 
                 fill="#7c3aed" 

@@ -39,9 +39,7 @@ const DetailsHeader = ({app}) => {
           />
         </div>
 
-        {/* 2. Info Section */}
         <div className="grow w-full text-center md:text-left">
-          {/* Title and Dev */}
           <div className="mb-4">
             <h1 className="text-2xl md:text-[32px] font-bold text-[#0f172a] leading-tight">
               {app.title}
@@ -55,7 +53,6 @@ const DetailsHeader = ({app}) => {
 
           {/* Stats Row */}
           <div className="flex justify-between md:justify-start gap-4 md:gap-20 mb-10 px-2 md:px-0">
-            {/* Downloads */}
             <div className="flex flex-col items-center md:items-start">
                <div className="text-[#00d084] mb-1">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

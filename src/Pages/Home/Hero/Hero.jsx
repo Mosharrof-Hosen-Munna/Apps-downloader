@@ -27,7 +27,8 @@ const Hero = () => {
         <div className="mt-12 flex  md:flex-row  items-center justify-center gap-4">
           {/* Google Play */}
           <a
-            href="#"
+            href="https://play.google.com/store/apps"
+            target="_blank"
             className="flex items-center gap-3 bg-[#f1f3f4] border border-gray-200 px-8 py-3.5 rounded-xl hover:bg-gray-200 hover:border-gray-300 transition-all w-1/2 md:w-auto shadow-sm active:scale-95"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -48,7 +49,8 @@ const Hero = () => {
 
           {/* App Store */}
           <a
-            href="#"
+            href="https://www.apple.com/app-store/"
+            target="_blank"
             className="flex items-center gap-3 bg-[#f1f3f4] border border-gray-200 px-8 py-3.5 rounded-xl hover:bg-gray-200 hover:border-gray-300 transition-all w-1/2 md:w-auto shadow-sm active:scale-95"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
